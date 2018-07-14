@@ -1,0 +1,9 @@
+2016-02-05 18:16:22,354 - main - INFO - test main logger
+2016-02-05 18:16:22,355 - main - INFO - start import module 'mod'...
+2016-02-05 18:18:35,203 - main - INFO - test main logger
+2016-02-05 18:18:35,203 - main - INFO - start import module 'mod'...
+2016-02-05 18:18:35,204 - main - DEBUG - let's test mod.testLogger()
+2016-02-05 18:21:08,812 - main - INFO - test main logger
+2016-02-05 18:21:08,812 - main - INFO - start import module 'mod'...
+2016-02-05 18:21:08,815 - main - DEBUG - let's test mod.testLogger()
+2016-02-05 18:21:24,371 - main.indexhandler - INFO - test indexhandler logger
