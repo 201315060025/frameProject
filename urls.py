@@ -75,4 +75,9 @@ urls = [
 (r"/getmapinfo", GetMapInfo),
 (r"/getearthquakeinfo", GetEartquakeInfo),
 
+# (r"/deleteuser", GetMapInfo),
+
 ]
+
+
+
