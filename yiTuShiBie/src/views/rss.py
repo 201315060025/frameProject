@@ -25,6 +25,12 @@ app = Sanic(name='_src-views')
 #     return html(rendered_template)
 
 
+@app.route('/test')
+def test_api(request):
+    return json({'status': 200, 'message': "success", 'data': None})
+
+
+
 @app.route("/")
 async def index(request):
     url = "http://blog.howie6879.cn/atom.xml"
@@ -49,3 +55,9 @@ async def rss_html(request):
             "published": article["published"]
         })
     return await template('rss.html', articles=data)
+
+
+@app.route('/intention-recognition-result')
+async def intention_recognition_result(request):
+    data={'status':200, 'message': 'OK', 'data': {'yi': "正常"}}
+    return json(data)
