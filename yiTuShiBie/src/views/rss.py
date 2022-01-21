@@ -57,7 +57,7 @@ async def rss_html(request):
     return await template('rss.html', articles=data)
 
 
-@app.route('/intention-recognition-result')
+@app.route('/intention-recognition-result', methods=['POST'])
 async def intention_recognition_result(request):
     data={'status':200, 'message': 'OK', 'data': {'yi': "正常"}}
     return json(data)
