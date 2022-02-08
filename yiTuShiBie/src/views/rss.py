@@ -20,12 +20,13 @@ def test_api(request):
 
 
 def op_save_file(file_obj, file_type):
-    filedata = file_obj.get('file')
+    write_mode, file_path, file_key = ('wb', Config.exePath, 'excelAddress') if file_type == '2' else ('w', Config.txtPath, 'txtAddress')
+    filedata = file_obj.get(file_key)
     if filedata:
         # 格式化数据名
         name = "{0}_{1}.{2}".format('.'.join(filedata.name.split('.')[:-1]), str(int(time.time())), filedata.name.split('.')[-1])
         try:
-            write_mode, file_path = ('wb',Config.exePath) if file_type == '2' else ('w', Config.txtPath)
+
             file_name = os.path.join(file_path, name)
             # 上传文件写入
             with open(file_name, write_mode) as ff:
