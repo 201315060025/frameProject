@@ -10,7 +10,6 @@ from pywebio.output import put_text, put_markdown, put_buttons, put_scope, get_s
     put_image, put_file, put_tabs, put_collapse, put_scrollable, put_widget, put_row, put_column, put_grid
 from pywebio.output import popup, toast, span, style
 from pywebio import start_server
-from collecte_data import *
 
 # 导入本地文件
 # from generate_pie_data import generate_pie, generate_pie_remark, generate_data_from as pie_data_source

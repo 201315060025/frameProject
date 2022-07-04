@@ -1,14 +1,18 @@
-import pymysql
-db = pymysql.connect(user="**", passwd="**", db="student", host="***")
-cur = db.cursor()
-
-# from sqlalchemy import create_engine
-# engine = create_engine(
-#     "mysql+pymysql://root:root@127.0.0.1:3306/mydb?charset=utf8")
-# print(engine)
+# encoding: utf-8
+"""
+初始化 数据库信息
+"""
 
 
-# 创建数据表--系统信息监控
+from monitorServer.db_execute import DbExecute
+cursor = DbExecute()
+
+# 创建数据库
+sql = """CREATE DATABASE IF NOT EXISTS student"""
+cursor.cursor.execute(sql)
+cursor.db.commit()
+
+# 创建数据库表
 sql="""CREATE TABLE IF NOT EXISTS system_info(
      ID int(8) not null auto_increment COMMENT '序号',
      TIME datetime not null COMMENT '记录时间',
@@ -25,5 +29,5 @@ sql="""CREATE TABLE IF NOT EXISTS system_info(
      primary key(ID)
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '系统信息监控';
 """
-cur.execute(sql)
-cur.close()
+cursor.cursor.execute(sql)
+cursor.db.commit()
