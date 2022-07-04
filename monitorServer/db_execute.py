@@ -7,10 +7,16 @@ from logger import log
 from config import Config
 from tools import cur_time
 
+class SingleModel(object):
+    def __new__(cls, *args, **kwargs):
+        if not hasattr(cls, 'instance'):
+            cls.instance = super().__new__(cls)
+        return cls.instance
 
 
-class DbExecute(object):
-    def __init__(self ):
+class DbExecute(SingleModel):
+    def __init__(self):
+        super(DbExecute).__init__()
         self._ip = Config.ip
         self._name = Config.name
         self._pwd = Config.pwd
@@ -21,7 +27,7 @@ class DbExecute(object):
         self._init_obj()
 
     def _init_obj(self):
-        """生命一个执行者"""
+        """声明一个执行者"""
         if self.cursor is None:
             db = pymysql.connect(user=self._name, passwd=self._pwd, db=self._database, host=self._ip)
             cur = db.cursor()
@@ -43,9 +49,22 @@ class DbExecute(object):
             return True
         except Exception as e:
             log.warning(f"insert data fail and source data = {sql}, {str(e)}")
+            log.exception(e)
             self.cursor.close()
             self.db.close()
             return False
+
+    def select(self, sql):
+        """查询数据"""
+        try:
+            self.cursor.execute(sql)
+            res = self.cursor.fetchall()
+            return res
+        except Exception as e:
+            log.warning(f"查询数据错误{sql}, {str(e)}")
+            log.exception(e)
+            self.cursor.close()
+            return []
 
 
 

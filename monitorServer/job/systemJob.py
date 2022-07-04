@@ -93,6 +93,7 @@ class SystemJob(object):
         except Exception as e:
             log.error("获取服务器数据有问题")
             log.exception(e)
+            return False
 
 if __name__ == '__main__':
     print('test systemJob file')
