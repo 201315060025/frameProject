@@ -3,9 +3,9 @@
 数据库操作
 """
 import pymysql
-from logger import log
-from config import Config
-from tools import cur_time
+from monitorServer.logger import log
+from monitorServer.config import Config
+from monitorServer.tools import cur_time
 
 class SingleModel(object):
     def __new__(cls, *args, **kwargs):
@@ -38,6 +38,13 @@ class DbExecute(SingleModel):
         """生成表"""
 
         pass
+
+    def restart_inint_obj(self, database):
+        db = pymysql.connect(user=self._name, passwd=self._pwd, db=database, host=self._ip)
+        cur = db.cursor()
+        self.cursor = cur
+        self.db = db
+
 
     def insert(self, *args)->bool:
         sql = """insert into {}(TIME,mem_free,mem_total,mem_percent,mem_used,cpu,disk1,disk2,disk3,disk4,disk5) value (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""".format(

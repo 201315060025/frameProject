@@ -12,6 +12,10 @@ sql = """CREATE DATABASE IF NOT EXISTS student"""
 cursor.cursor.execute(sql)
 cursor.db.commit()
 
+
+# 修改数据库
+cursor.restart_inint_obj('student')
+
 # 创建数据库表
 sql="""CREATE TABLE IF NOT EXISTS system_info(
      ID int(8) not null auto_increment COMMENT '序号',
