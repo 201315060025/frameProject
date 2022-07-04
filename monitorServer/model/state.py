@@ -1,5 +1,5 @@
 import pymysql
-db = pymysql.connect(user="root", passwd="123456", db="student", host="120.27.230.147")
+db = pymysql.connect(user="**", passwd="**", db="student", host="***")
 cur = db.cursor()
 
 # from sqlalchemy import create_engine
