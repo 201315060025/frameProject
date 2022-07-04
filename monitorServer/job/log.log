@@ -1,0 +1,15 @@
+2022-07-04 11:00:18.346 | ERROR    | monitorServer.logger:error:44 - 获取服务器数据有问题
+2022-07-04 11:00:20.313 | ERROR    | monitorServer.logger:error:44 - '>' not supported between instances of 'str' and 'int'
+2022-07-04 11:04:23.091 | ERROR    | monitorServer.logger:error:44 - 获取服务器数据有问题
+2022-07-04 11:04:23.091 | ERROR    | monitorServer.logger:exception:47 - '>' not supported between instances of 'str' and 'int'
+Traceback (most recent call last):
+
+  File "/Users/4paradigm/code/person/fram_project/monitorServer/job/systemJob.py", line 106, in <module>
+    res = system_job.do()
+          │          └ <function SystemJob.do at 0x7fd3ac54ea60>
+          └ <__main__.SystemJob object at 0x7fd3aa3ff048>
+
+> File "/Users/4paradigm/code/person/fram_project/monitorServer/job/systemJob.py", line 66, in do
+    "a" > 2
+
+TypeError: '>' not supported between instances of 'str' and 'int'
