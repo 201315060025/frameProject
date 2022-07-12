@@ -16,6 +16,7 @@ from pywebio import start_server
 # from generate_link_data import generate_link, generate_link_remark
 # from data import data_to_table
 from graphical import cpu_info_graphical, memory_used_graphical, memory_used_line_graphical
+from init_info import *
 
 current_workspace = os.path.join(os.path.dirname(os.path.abspath(__file__)))
 out_path = os.path.join(current_workspace, 'output')
@@ -60,4 +61,4 @@ def main():
 
 
 if __name__ == "__main__":
-    start_server(main, debug=True, port=8082)
+    start_server(main, debug=True, port=8083)

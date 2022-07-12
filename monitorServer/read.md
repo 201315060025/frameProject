@@ -6,4 +6,7 @@
   * mysql
   * pyeathers
   * psutil
-* 
+# docker 打包容器流程
+* 先制作mysql镜像， [参考地址](https://github.com/201315060025/projectDemo/blob/master/dockerDemo/read.md)
+* 项目打包流程--> 使用dockerfile
+ 
